@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public class HeaderPanel extends Panel implements Serializable {
   public HeaderPanel(String id) {
-
     super(id);
+    
   }
 }
