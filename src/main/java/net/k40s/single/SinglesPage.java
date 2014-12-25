@@ -11,6 +11,7 @@ import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 
+import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.resource.ContextRelativeResource;
 
 
@@ -51,14 +52,16 @@ public class SinglesPage extends WebPage implements Serializable {
       @Override
       protected void populateItem(ListItem<Song> item) {
         final Song song = (Song) item.getModelObject();
-        item.add(new Image("image", new ContextRelativeResource("/single_images/" + song.getImage())));
         Link link = new Link("link") {
           @Override
           public void onClick() {
-            setResponsePage(HomePage.class); //TODO
+            PageParameters params = new PageParameters();
+            params.add("id", song.getId());
+            setResponsePage(SingleProductPage.class);
           }
         };
         link.add(new Label("name", song.getName()));
+        link.add(new Image("image", new ContextRelativeResource("/single_images/" + song.getImage())));
         item.add(link);
       }
     });

@@ -10,6 +10,7 @@ import org.apache.wicket.markup.html.image.Image;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
+import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.resource.ContextRelativeResource;
 
 import java.io.Serializable;
@@ -48,14 +49,16 @@ public class AlbumsPage extends WebPage implements Serializable{
       @Override
       protected void populateItem(ListItem<Album> item) {
         final Album album = (Album) item.getModelObject();
-        item.add(new Image("image", new ContextRelativeResource("/album_images/" + album.getImage())));
         Link link = new Link("link") {
           @Override
           public void onClick() {
-            setResponsePage(HomePage.class); //TODO
+            PageParameters params = new PageParameters();
+            params.add("id", album.getId());
+            setResponsePage(AlbumProductPage.class, params);
           }
         };
         link.add(new Label("name", album.getName()));
+        link.add(new Image("image", new ContextRelativeResource("/album_images/" + album.getImage())));
         item.add(link);
       }
     });
