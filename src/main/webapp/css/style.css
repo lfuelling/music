@@ -5,3 +5,11 @@ body {
     padding: 40px 15px;
     text-align: center;
 }
+.coverimg {
+    height:256px;
+    width:256px;
+}
+
+.margtop20 {
+    margin-top: 20px;
+}

@@ -1,8 +1,9 @@
 package net.k40s;
 
-import org.apache.wicket.markup.html.panel.Panel;
+import net.k40s.album.AlbumsPage;
+import net.k40s.single.SinglesPage;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
-import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.WebPage;
 
 public class HomePage extends WebPage {
@@ -10,9 +11,31 @@ public class HomePage extends WebPage {
 	public HomePage(final PageParameters parameters) {
 		super(parameters);
 
-		add(new HeaderPanel("headerPanel"));
+		add(new Link("homeLink") {
+			@Override
+			public void onClick() {
+				setResponsePage(HomePage.class);
+			}
+		});
+		add(new Link("singlesLink") {
+			@Override
+			public void onClick() {
+				setResponsePage(SinglesPage.class);
+			}
+		});
+		add(new Link("albumsLink") {
+			@Override
+			public void onClick() {
+				setResponsePage(AlbumsPage.class);
+			}
+		});
+		add(new Link("contactLink") {
+			@Override
+			public void onClick() {
+				setResponsePage(ContactPage.class);
+			}
+		});
 
-		// TODO Add your page's components here
 
     }
 }

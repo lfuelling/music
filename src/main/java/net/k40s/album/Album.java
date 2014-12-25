@@ -1,4 +1,6 @@
-package net.k40s;
+package net.k40s.album;
+
+import net.k40s.single.Song;
 
 import java.util.List;
 
@@ -10,6 +12,7 @@ public class Album {
   String name;
   String description;
   String image;
+  String releaseDate;
   double price;
   boolean payWhatYouWant;
   List<Song> songs;
@@ -24,12 +27,13 @@ public class Album {
    * @param payWhatYouWant Is Album Pay What You Want?
    * @param songs Songs that are in this album. (Note to self: use <pre>Arrays.asList(</pre>)
    */
-  public Album(int id, String name, String description, String image, double price, boolean payWhatYouWant, List<Song> songs) {
+  public Album(int id, String name, String description, String image, String releaseDate, double price, boolean payWhatYouWant, List<Song> songs) {
 
     this.id = id;
     this.name = name;
     this.description = description;
     this.image = image;
+    this.releaseDate = releaseDate;
     this.price = price;
     this.payWhatYouWant = payWhatYouWant;
     this.songs = songs;
@@ -53,6 +57,11 @@ public class Album {
   public String getImage() {
 
     return image;
+  }
+
+  public String getReleaseDate() {
+
+    return releaseDate;
   }
 
   public double getPrice() {
