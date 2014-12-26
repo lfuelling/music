@@ -20,7 +20,13 @@ public class Storage {
       new Song(6, "Supernova", "", "supernova.jpg", "26 June 2014", "supernova.mp3", 1.00, true),
       new Song(7, "Ezekiel", "", "ezekiel.jpg", "08 August 2014", "ezekiel.mp3", 0.00, true),
       new Song(8, "Dawn Of The Ganja Queen", "", "ganjaqueen.jpg", "18 August 2014", "ganjaqueen.mp3", 0.00, true),
-      new Song(9, "Green Kingdom", "", "kingdom.jpg", "21 August 2014", "kingdom.mp3", 0.00, true)
+      new Song(9, "Green Kingdom", "", "kingdom.jpg", "21 August 2014", "kingdom.mp3", 0.00, true),
+      new Song(10, "Alliens", "Got it's name because of things...", "alliens.jpg", "21 September 2014", "alliens.mp3", 0.00, true),
+      new Song(11, "Mouth", "", "mouth.jpg", "30 October 2014", "mouth.mp3", 0.00, true),
+      new Song(12, "Dr0p", "It's really just one block.", "noimage.png", "04 November 2014", "dr0p.mp3", 0.00, true),
+      new Song(13, "Hotfix", "", "noimage.png", "21 November 2014", "hotfix.mp3", 0.00, true),
+      new Song(14, "Center Of The Universe", "End of the space-series.", "cotu.jpg", "30 November 2014", "cotu.mp3", 0.00, true),
+      new Song(15, "Jamsession (feat. Dernerl)", "Sorry for the bad quality. It's been recorded using my Thinkpad W510.", "jamsession.jpg", "20 December 2014", "jamsession.mp3", 0.00, true)
   );
 
   static List<Album> albums = Arrays.asList(
