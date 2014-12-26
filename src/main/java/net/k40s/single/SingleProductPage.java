@@ -9,11 +9,17 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.image.ContextImage;
 import org.apache.wicket.markup.html.image.Image;
 import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.model.AbstractReadOnlyModel;
+import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.resource.ContextRelativeResource;
+import org.wicketstuff.html5.media.MediaSource;
+import org.wicketstuff.html5.media.audio.Html5Audio;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Lukas F&uuml;lling (l.fuelling@micromata.de)
@@ -39,6 +45,24 @@ public class SingleProductPage extends WebPage implements Serializable {
       add(new Image("image", new ContextRelativeResource("/single_images/" + songToUse.getImage())));
 
     }
+
+    final List mm = new ArrayList();
+    mm.add(new MediaSource("/audio/" + songToUse.getAudio(), "audio/mp3"));
+
+    IModel<List<MediaSource>> mediaSourceList = new AbstractReadOnlyModel<List<MediaSource>>() {
+      public List getObject() {
+        return mm;
+      }
+    };
+    
+
+    
+    add(new Html5Audio("player", mediaSourceList){
+      @Override
+      protected boolean isControls() {
+        return true;
+      }
+    });
     
     add(new Link("homeLink") {
       @Override

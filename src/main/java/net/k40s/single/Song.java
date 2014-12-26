@@ -9,6 +9,7 @@ public class Song {
   String description;
   String image;
   String releaseDate;
+  String audioFile;
   double price;
   boolean payWhatYouWant;
 
@@ -22,7 +23,7 @@ public class Song {
    * @param price Song Price
    * @param payWhatYouWant Is Song Pay What You Want?
    */
-  public Song(int id, String name, String description, String image, String releaseDate, double price, boolean payWhatYouWant) {
+  public Song(int id, String name, String description, String image, String releaseDate, String audioFile, double price, boolean payWhatYouWant) {
 
     this.id = id;
     this.name = name;
@@ -31,6 +32,12 @@ public class Song {
     this.releaseDate = releaseDate;
     this.price = price;
     this.payWhatYouWant = payWhatYouWant;
+    this.audioFile = audioFile;
+  }
+
+  public String getAudio() {
+
+    return audioFile;
   }
 
   public int getId() {

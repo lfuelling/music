@@ -12,11 +12,15 @@ import java.util.List;
  */
 public class Storage {
   static List<Song> singles = Arrays.asList(
-      new Song(1, "Pioneer", "My first Song", "pioneer.jpg", "19 June 2014", 0.00, true),
-      new Song(2, "Hashes", "", "hashes.jpg", "20 June 2014", 0.00, true),
-      new Song(3, "Struu", "Dedicated to a friend", "struu.jpg", "21 June 2014", 0.75, true),
-      new Song(4, "Rose", "Bad Wolf", "rose.jpg", "22 June 2014", 0.75, true),
-      new Song(5, "Shining", "Bonus track from the Spacewalk album.", "noimage.png", "22 June 2014", 0.00, true)
+      new Song(1, "Pioneer", "My first Song", "pioneer.jpg", "19 June 2014", "pioneer.mp3", 0.00, true),
+      new Song(2, "Hashes", "", "hashes.jpg", "20 June 2014", "hashes.mp3", 0.00, true),
+      new Song(3, "Struu", "Dedicated to a friend", "struu.jpg", "21 June 2014", "struu.mp3", 0.75, true),
+      new Song(4, "Rose", "Bad Wolf", "rose.jpg", "22 June 2014", "rose.mp3", 0.75, true),
+      new Song(5, "Shining", "Bonus track from the Spacewalk album.", "noimage.png", "22 June 2014", "shining.mp3", 0.00, true),
+      new Song(6, "Supernova", "", "supernova.jpg", "26 June 2014", "supernova.mp3", 1.00, true),
+      new Song(7, "Ezekiel", "", "ezekiel.jpg", "08 August 2014", "ezekiel.mp3", 0.00, true),
+      new Song(8, "Dawn Of The Ganja Queen", "", "ganjaqueen.jpg", "18 August 2014", "ganjaqueen.mp3", 0.00, true),
+      new Song(9, "Green Kingdom", "", "kingdom.jpg", "21 August 2014", "kingdom.mp3", 0.00, true)
   );
 
   static List<Album> albums = Arrays.asList(
