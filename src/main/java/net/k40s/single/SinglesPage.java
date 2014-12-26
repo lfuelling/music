@@ -57,7 +57,7 @@ public class SinglesPage extends WebPage implements Serializable {
           public void onClick() {
             PageParameters params = new PageParameters();
             params.add("id", song.getId());
-            setResponsePage(SingleProductPage.class);
+            setResponsePage(SingleProductPage.class, params);
           }
         };
         link.add(new Label("name", song.getName()));

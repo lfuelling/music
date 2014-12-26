@@ -19,3 +19,17 @@ body {
     
 }
 
+.price {
+    float:right;
+    font-size: 17pt;
+
+}
+
+.description {
+    width: 100%;
+}
+
+.img512{
+    height:512px;
+    width:512px;
+}

@@ -42,6 +42,11 @@ public class Storage {
     return albums;
   }
   
+  public static List<Song> getSongsOfAlbum(int albumID){
+    Album album = albums.get(albumID-1);
+    return album.getSongs();
+  } 
+  
   public static List<Album> getReversedAlbums(){
     return Lists.reverse(albums);
     

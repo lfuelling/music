@@ -39,6 +39,40 @@
 
 <div class="container margtop20">
 
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="description">
+                <h2 wicket:id="name">Produkt</h2>
+
+                <p wicket:id="description">
+                    Beschreibung (wenn vorhanden)
+                </p>
+
+                <p>
+                    <audio controls>
+                        <source src="http://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </p>
+            </div>
+            <div class="price">
+                <div class="btn-group" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default">Pay What You Want</button>
+                    <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom"
+                            title="Pay whatever price you see fit."><span
+                            class="glyphicon glyphicon-question-sign"></span></button>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-md-6"><img wicket:id="image" class="img512"
+                                   src="http://upload.wikimedia.org/wikipedia/commons/3/39/Lichtenstein_img_processing_test.png">
+        </div>
+
+
+    </div>
 
 </div>
 
@@ -47,5 +81,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
+<script src="js/tooltip.js"></script>
 </body>
 </html>
