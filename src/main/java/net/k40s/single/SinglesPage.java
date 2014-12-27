@@ -7,6 +7,7 @@ import net.k40s.album.AlbumsPage;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.image.Image;
+import org.apache.wicket.markup.html.link.ExternalLink;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
@@ -41,12 +42,7 @@ public class SinglesPage extends WebPage implements Serializable {
         setResponsePage(AlbumsPage.class);
       }
     });
-    add(new Link("contactLink") {
-      @Override
-      public void onClick() {
-        setResponsePage(ContactPage.class);
-      }
-    });
+    add(new ExternalLink("contactLink", "http://k40s.net"));
 
     add(new ListView<Song>("singles", Storage.getReversedSingles()) { // getReversedSingles for correct placement on the website.
       @Override

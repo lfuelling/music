@@ -67,8 +67,8 @@ public class SingleProductPage extends WebPage implements Serializable {
     
     add(new Label("name2", songToUse.getName()));
     add(new Label("name3", songToUse.getName()));
-
-    add(new DownloadLink("downloadButton", new File("/var/k40s_music/audio/" + songToUse.getAudio()))); //Stupid absolute path stuff
+    
+    add(new ExternalLink("downloadButton", "/audio/" + songToUse.getAudio()));
 
     add(new ExternalLink("donateButton", "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5Y8QNG65M2892"));
 
@@ -101,12 +101,6 @@ public class SingleProductPage extends WebPage implements Serializable {
         setResponsePage(AlbumsPage.class);
       }
     });
-    add(new Link("contactLink") {
-      @Override
-      public void onClick() {
-
-        setResponsePage(ContactPage.class);
-      }
-    });
+    add(new ExternalLink("contactLink", "http://k40s.net"));
   }
 }

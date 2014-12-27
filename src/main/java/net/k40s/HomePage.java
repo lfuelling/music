@@ -2,6 +2,7 @@ package net.k40s;
 
 import net.k40s.album.AlbumsPage;
 import net.k40s.single.SinglesPage;
+import org.apache.wicket.markup.html.link.ExternalLink;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.markup.html.WebPage;
@@ -29,12 +30,7 @@ public class HomePage extends WebPage {
 				setResponsePage(AlbumsPage.class);
 			}
 		});
-		add(new Link("contactLink") {
-			@Override
-			public void onClick() {
-				setResponsePage(ContactPage.class);
-			}
-		});
+		add(new ExternalLink("contactLink", "http://k40s.net"));
 
 
     }
