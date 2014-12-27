@@ -58,7 +58,7 @@
             </div>
             <div class="price">
                 <div class="btn-group" role="group" aria-label="...">
-                    <button type="button" class="btn btn-default">Pay What You Want</button>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#downloadModal">Download This Song</button>
                     <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom"
                             title="Pay whatever price you see fit."><span
                             class="glyphicon glyphicon-question-sign"></span></button>
@@ -76,6 +76,28 @@
 
 </div>
 
+<div class="modal fade" id="downloadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Get &quot;<span wicket:id="name2">Song Title</span>&quot;</h4>
+            </div>
+            <div class="modal-body">
+                <p>You are about to download my song &quot;<span wicket:id="name3">Song Title</span>&quot;.</p>
+                <p>This download is completely free, but there's also the opportunity to support me with a small donation.</p>
+                <p>Here are your Buttons:</p>
+                <div class="btn-group" role="group" aria-label="...">
+                    <a wicket:id="donateButton" type="button" class="btn btn-default">Donate</a>
+                    <a wicket:id="downloadButton" type="button" class="btn btn-default">Get It</a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Okay</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

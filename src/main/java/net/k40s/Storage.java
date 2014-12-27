@@ -45,7 +45,6 @@ public class Storage {
           singles.get(10),
           singles.get(12),
           singles.get(14)
-          
       ))
   );
 
