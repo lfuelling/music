@@ -36,6 +36,16 @@ public class Storage {
           singles.get(2), // Struu
           singles.get(3), // Rose
           singles.get(4)  // Shining
+      )),
+      new Album(2, "Best Of 2014", "My favourite tracks from 2014", "bestof14.jpg", "27 December 2014", 0.00, true, Arrays.asList(
+          singles.get(0),
+          singles.get(2),
+          singles.get(5),
+          singles.get(9),
+          singles.get(10),
+          singles.get(12),
+          singles.get(14)
+          
       ))
   );
 
