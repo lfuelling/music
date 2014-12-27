@@ -23,16 +23,16 @@
 	<groupId>net.k40s</groupId>
 	<artifactId>music</artifactId>
 	<packaging>war</packaging>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0.1</version>
 		<!-- TODO project name  -->
-	<name>quickstart</name>
-	<description></description>
-	<!--
+	<name>music</name>
+	<description>My music website.</description>
+
 		<organization>
-			<name>company name</name>
-			<url>company url</url>
+			<name>Lukas Fülling</name>
+			<url>http://k40s.net</url>
 		</organization>
-	-->
+
 	<licenses>
 		<license>
 			<name>The Apache Software License, Version 2.0</name>

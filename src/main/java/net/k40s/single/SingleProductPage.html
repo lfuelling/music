@@ -13,6 +13,16 @@
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
+<script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44457715-5', 'auto');
+    ga('send', 'pageview');
+
+</script>
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -48,6 +58,20 @@
                 <p wicket:id="description">
                     Beschreibung (wenn vorhanden)
                 </p>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <p><b>Format:</b></p>
+                        <p><b>Release Date:</b></p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>mp3</p>
+                        <p wicket:id="releaseDate">NOT</p>
+                    </div>
+                    <div class="col-md-4">
+
+                    </div>
+                </div>
 
                 <p>
                     <audio controls wicket:id="player">

@@ -1,6 +1,5 @@
 package net.k40s.album;
 
-import net.k40s.ContactPage;
 import net.k40s.HomePage;
 import net.k40s.single.SinglesPage;
 import net.k40s.Storage;

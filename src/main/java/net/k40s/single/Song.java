@@ -1,5 +1,7 @@
 package net.k40s.single;
 
+import java.util.List;
+
 /**
  * @author Lukas F&uuml;lling (l.fuelling@micromata.de)
  */
@@ -12,6 +14,7 @@ public class Song {
   String audioFile;
   double price;
   boolean payWhatYouWant;
+
 
 
   /**
@@ -34,6 +37,8 @@ public class Song {
     this.payWhatYouWant = payWhatYouWant;
     this.audioFile = audioFile;
   }
+
+
 
   public String getAudio() {
 

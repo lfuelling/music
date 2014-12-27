@@ -1,11 +1,14 @@
 package net.k40s.album;
 
-import net.k40s.ContactPage;
 import net.k40s.HomePage;
 import net.k40s.Storage;
 import net.k40s.single.SingleProductPage;
 import net.k40s.single.SinglesPage;
 import net.k40s.single.Song;
+import org.apache.wicket.markup.head.CssContentHeaderItem;
+import org.apache.wicket.markup.head.CssHeaderItem;
+import org.apache.wicket.markup.head.IHeaderResponse;
+import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.image.Image;
