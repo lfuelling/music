@@ -11,6 +11,10 @@ import java.util.List;
  * @author Lukas F&uuml;lling (l.fuelling@micromata.de)
  */
 public class Storage {
+
+  static String audioPath = "/var/audio/"; //THIS IS SO DAMN IMPORTANT!!!
+  static String relativeAudioPath = "/media/"; //DON'T CHANGE PLS!
+  
   static List<Song> singles = Arrays.asList(
       new Song(1, "Pioneer", "My first Song", "pioneer.jpg", "19 June 2014", "pioneer.mp3", 0.00, true),
       new Song(2, "Hashes", "", "hashes.jpg", "20 June 2014", "hashes.mp3", 0.00, true),
@@ -69,5 +73,15 @@ public class Storage {
   public static List<Album> getReversedAlbums(){
     return Lists.reverse(albums);
     
+  }
+
+  public static String getAudioPath() {
+
+    return audioPath;
+  }
+
+  public static String getRelativeAudioPath() {
+
+    return relativeAudioPath;
   }
 }

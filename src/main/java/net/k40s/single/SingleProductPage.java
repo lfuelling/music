@@ -6,6 +6,7 @@ import net.k40s.album.AlbumsPage;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.image.Image;
+import org.apache.wicket.markup.html.link.DownloadLink;
 import org.apache.wicket.markup.html.link.ExternalLink;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.AbstractReadOnlyModel;
@@ -15,6 +16,7 @@ import org.apache.wicket.request.resource.ContextRelativeResource;
 import org.wicketstuff.html5.media.MediaSource;
 import org.wicketstuff.html5.media.audio.Html5Audio;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +27,6 @@ import java.util.List;
 public class SingleProductPage extends WebPage implements Serializable {
   Song songToUse;
   public SingleProductPage(PageParameters parameters) {
-    
     super(parameters);
 
     if(parameters.get("id").isNull()) {
@@ -45,19 +46,21 @@ public class SingleProductPage extends WebPage implements Serializable {
     }
 
     final List mm = new ArrayList();
-    mm.add(new MediaSource("/audio/" + songToUse.getAudio(), "audio/mp3"));
+    mm.add(new MediaSource(Storage.getRelativeAudioPath() + songToUse.getAudio(), "audio/mp3"));
 
     IModel<List<MediaSource>> mediaSourceList = new AbstractReadOnlyModel<List<MediaSource>>() {
       public List getObject() {
         return mm;
       }
     };
-    
+
     add(new Label("name2", songToUse.getName()));
     add(new Label("name3", songToUse.getName()));
     
-    add(new ExternalLink("downloadButton", "/audio/" + songToUse.getAudio()));
-
+    //add(new ExternalLink("downloadButton", "/audio/" + songToUse.getAudio()));
+    File audioFile = new File(Storage.getAudioPath() + songToUse.getAudio());
+    add(new DownloadLink("downloadButton", audioFile));
+    
     add(new ExternalLink("donateButton", "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5Y8QNG65M2892"));
 
     add(new Label("releaseDate", songToUse.getReleaseDate()));
