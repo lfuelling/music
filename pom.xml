@@ -24,7 +24,6 @@
 	<artifactId>music</artifactId>
 	<packaging>war</packaging>
 	<version>1.0.1</version>
-		<!-- TODO project name  -->
 	<name>music</name>
 	<description>My music website.</description>
 
