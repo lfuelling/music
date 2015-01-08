@@ -14,6 +14,7 @@ public class Storage {
 
   static String audioPath = "/var/audio/"; //THIS IS SO DAMN IMPORTANT!!!
   static String relativeAudioPath = "/media"; //Mountpoint
+
   
   static List<Song> singles = Arrays.asList(
       new Song(1, "Pioneer", "My first Song", "pioneer.jpg", "19 June 2014", "pioneer.mp3", 0.00, true),

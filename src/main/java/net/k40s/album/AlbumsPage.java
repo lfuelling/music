@@ -43,7 +43,7 @@ public class AlbumsPage extends WebPage implements Serializable{
     add(new ListView<Album>("albums", Storage.getReversedAlbums()) { // getReversedSingles for correct placement on the website.
       @Override
       protected void populateItem(ListItem<Album> item) {
-        final Album album = (Album) item.getModelObject();
+        final Album album = item.getModelObject();
         Link link = new Link("link") {
           @Override
           public void onClick() {

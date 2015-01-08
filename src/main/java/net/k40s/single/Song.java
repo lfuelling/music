@@ -1,6 +1,5 @@
 package net.k40s.single;
 
-import java.util.List;
 
 /**
  * @author Lukas F&uuml;lling (l.fuelling@micromata.de)

@@ -47,7 +47,7 @@ public class SinglesPage extends WebPage implements Serializable {
     add(new ListView<Song>("singles", Storage.getReversedSingles()) { // getReversedSingles for correct placement on the website.
       @Override
       protected void populateItem(ListItem<Song> item) {
-        final Song song = (Song) item.getModelObject();
+        final Song song = item.getModelObject();
         Link link = new Link("link") {
           @Override
           public void onClick() {

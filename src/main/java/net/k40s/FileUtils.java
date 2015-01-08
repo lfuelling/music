@@ -11,7 +11,7 @@ import java.util.zip.ZipOutputStream;
  * @author Lukas F&uuml;lling (l.fuelling@micromata.de)
  */
 public class FileUtils {
-  public static void addToZipFile(String fileName, ZipOutputStream zos) throws FileNotFoundException, IOException {
+  public static void addToZipFile(String fileName, ZipOutputStream zos) throws IOException {
 
     System.out.println("Writing '" + fileName + "' to zip file");
 
