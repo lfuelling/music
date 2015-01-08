@@ -7,7 +7,7 @@ import org.apache.wicket.request.resource.SharedResourceReference;
 import java.io.File;
 
 public class WicketApplication extends WebApplication {
-
+        // TODO Integrate Peer5 for downloads.
   /**
    * @see org.apache.wicket.Application#getHomePage()
    */
