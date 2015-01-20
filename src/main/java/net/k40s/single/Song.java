@@ -15,7 +15,6 @@ public class Song {
   boolean payWhatYouWant;
 
 
-
   /**
    * This defines a Song. If you set PayWhatYouWant to true the price will be the starting point for this.
    * @param id Song ID
@@ -36,7 +35,6 @@ public class Song {
     this.payWhatYouWant = payWhatYouWant;
     this.audioFile = audioFile;
   }
-
 
 
   public String getAudio() {
