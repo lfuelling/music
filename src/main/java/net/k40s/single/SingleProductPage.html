@@ -60,7 +60,12 @@
 
         <div class="col-md-6">
             <div class="description">
-                <h2 wicket:id="name">Produkt</h2>
+            <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" wicket:id="name">Album Name</h3>
+                    </div>
+              <div class="panel-body">
+                
 
                 <p wicket:id="description">
                     Beschreibung (wenn vorhanden)
@@ -88,7 +93,7 @@
                         Your browser does not support the audio element.
                     </audio>
                 </p>
-            </div>
+            
             <div class="price">
                 <div class="btn-group" role="group" aria-label="...">
                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#downloadModal">
@@ -100,11 +105,17 @@
                 </div>
             </div>
             
-
-
+			</div>
+            </div>
+</div>
         </div>
-        <div class="col-md-6"><img wicket:id="image" class="img512"
-                                   src="http://upload.wikimedia.org/wikipedia/commons/3/39/Lichtenstein_img_processing_test.png">
+        
+        <div class="col-md-6">
+        	<div class="panel panel-default">
+  				<div class="panel-body">
+        			<img wicket:id="image" class="img512" src="http://upload.wikimedia.org/wikipedia/commons/3/39/Lichtenstein_img_processing_test.png">
+        		</div>
+        	</div>
         </div>
 
 

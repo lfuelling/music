@@ -1,10 +1,12 @@
 package net.k40s.single;
 
+import java.io.Serializable;
+
 
 /**
  * @author Lukas F&uuml;lling (l.fuelling@micromata.de)
  */
-public class Song {
+public class Song implements Serializable {
   int id;
   String name;
   String description;

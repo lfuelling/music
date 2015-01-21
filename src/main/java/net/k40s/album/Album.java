@@ -2,12 +2,13 @@ package net.k40s.album;
 
 import net.k40s.single.Song;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * @author Lukas F&uuml;lling (l.fuelling@micromata.de)
  */
-public class Album {
+public class Album implements Serializable{
   int id;
   String name;
   String description;
@@ -28,7 +29,6 @@ public class Album {
    * @param songs Songs that are in this album. (Note to self: use <pre>Arrays.asList(</pre>)
    */
   public Album(int id, String name, String description, String image, String releaseDate, double price, boolean payWhatYouWant, List<Song> songs) {
-
     this.id = id;
     this.name = name;
     this.description = description;

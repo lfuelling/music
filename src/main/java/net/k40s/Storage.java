@@ -43,13 +43,13 @@ public class Storage {
           singles.get(4)  // Shining
       )),
       new Album(2, "Best Of 2014", "My favourite tracks from 2014. Looking forward for next year.", "bestof14.jpg", "27 December 2014", 0.00, true, Arrays.asList(
-          singles.get(0),
-          singles.get(2),
-          singles.get(5),
-          singles.get(9),
-          singles.get(10),
-          singles.get(12),
-          singles.get(14)
+          singles.get(0), // Pioneer
+          singles.get(2), // Struu
+          singles.get(5), // Shining
+          singles.get(9), // Green Kingdom
+          singles.get(10), // Alliens
+          singles.get(12), // Dr0p
+          singles.get(14) // Center Of The Universe
       ))
   );
 

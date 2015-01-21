@@ -6,6 +6,8 @@ import net.k40s.Storage;
 import net.k40s.single.SingleProductPage;
 import net.k40s.single.SinglesPage;
 import net.k40s.single.Song;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.image.Image;
@@ -16,9 +18,12 @@ import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.request.cycle.RequestCycle;
+import org.apache.wicket.request.http.WebRequest;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.resource.ContextRelativeResource;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 import java.util.zip.ZipOutputStream;
 
@@ -27,6 +32,8 @@ import java.util.zip.ZipOutputStream;
  */
 public class AlbumProductPage extends WebPage implements Serializable {
   Album albumToUse;
+  Logger logger = LogManager.getLogger(AlbumProductPage.class.getName());
+  String clientAddress;
 
   public AlbumProductPage(PageParameters parameters) {
 
@@ -34,13 +41,18 @@ public class AlbumProductPage extends WebPage implements Serializable {
     if(parameters.get("id").isNull()) {
       setResponsePage(AlbumsPage.class);
     } else {
+      WebRequest req = (WebRequest) RequestCycle.get().getRequest();
+      HttpServletRequest httpReq = (HttpServletRequest) req.getContainerRequest();
+      clientAddress = httpReq.getRemoteHost();
 
+      logger.trace("ID is: " + parameters.get("id"));
       for(Album album : Storage.getAlbums()) {
         if(album.getId() == parameters.get("id").toInt()) {
           albumToUse = album;
           break;
         }
       }
+      logger.trace("Album to use is: " + albumToUse.getName());
       add(new Label("name", albumToUse.getName()));
       add(new Label("description", albumToUse.getDescription()));
       add(new Image("image", new ContextRelativeResource("/album_images/" + albumToUse.getImage())));
@@ -96,8 +108,9 @@ public class AlbumProductPage extends WebPage implements Serializable {
           try {
             zfm = generateFile();
           } catch(IOException e) {
-            e.printStackTrace();
+            logger.error(e);
           }
+          logger.trace("Generating Archive of Album " + albumToUse.getName() + " for Client at: " + clientAddress);
           return zfm;
         }
       };
@@ -111,7 +124,6 @@ public class AlbumProductPage extends WebPage implements Serializable {
   }
 
   private File generateFile() throws IOException {
-
     File tempFile = File.createTempFile("foo", "zip");
     tempFile.deleteOnExit();
 
