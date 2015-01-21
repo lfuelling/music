@@ -93,6 +93,7 @@ public class SingleProductPage extends WebPage implements Serializable {
         setResponsePage(AlbumsPage.class);
       }
     });
+    add(new Label("version", Storage.getVersion()));
     add(new ExternalLink("contactLink", "http://k40s.net"));
   }
 }

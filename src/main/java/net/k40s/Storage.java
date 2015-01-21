@@ -14,6 +14,7 @@ public class Storage {
 
   static String audioPath = "/var/audio/"; //THIS IS SO DAMN IMPORTANT!!!
   static String relativeAudioPath = "/media"; //Mountpoint
+  static String version = "1.3"; //TODO Change version number according to pom.xml
 
   
   static List<Song> singles = Arrays.asList(
@@ -79,6 +80,10 @@ public class Storage {
   public static String getAudioPath() {
 
     return audioPath;
+  }
+  
+  public static String getVersion(){
+	  return version;
   }
 
   public static String getRelativeAudioPath() {

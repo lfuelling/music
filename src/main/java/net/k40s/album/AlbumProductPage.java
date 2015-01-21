@@ -100,6 +100,7 @@ public class AlbumProductPage extends WebPage implements Serializable {
       add(new ExternalLink("donateButton", "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5Y8QNG65M2892"));
       add(new Label("name2", albumToUse.getName()));
       add(new Label("name3", albumToUse.getName()));
+      add(new Label("version", Storage.getVersion()));
 
       IModel<File> zipFileModel = new AbstractReadOnlyModel<File>() {
         public File getObject() {

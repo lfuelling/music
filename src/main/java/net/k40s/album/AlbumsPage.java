@@ -57,6 +57,7 @@ public class AlbumsPage extends WebPage implements Serializable{
         item.add(link);
       }
     });
+    add(new Label("version", Storage.getVersion()));
     
   }
 }

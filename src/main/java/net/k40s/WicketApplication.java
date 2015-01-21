@@ -32,7 +32,6 @@ public class WicketApplication extends WebApplication {
     super.init();
 
     logger.info("Music Page Deployed Successfully");
-
     // add your configuration here
     mountPage("/albums", AlbumsPage.class);
     mountPage("/singles", SinglesPage.class);

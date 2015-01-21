@@ -61,6 +61,7 @@ public class SinglesPage extends WebPage implements Serializable {
         item.add(link);
       }
     });
+    add(new Label("version", Storage.getVersion()));
 
   }
 }
