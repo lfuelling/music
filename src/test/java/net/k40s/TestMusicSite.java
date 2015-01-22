@@ -4,6 +4,7 @@ import net.k40s.album.AlbumProductPage;
 import net.k40s.album.AlbumsPage;
 import net.k40s.single.SingleProductPage;
 import net.k40s.single.SinglesPage;
+import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,11 +16,15 @@ import org.junit.Test;
 public class TestMusicSite
 {
 	private WicketTester tester;
+	PageParameters pageParameters;
+
 
 	@Before
 	public void setUp()
 	{
 		tester = new WicketTester(new WicketApplication());
+		pageParameters = new PageParameters();
+		pageParameters.add("id", "2"); // Dunno why I use Hashes...
 	}
 
 	@Test
@@ -37,9 +42,9 @@ public class TestMusicSite
 		tester.assertRenderedPage(SinglesPage.class);
 		tester.startPage(AlbumsPage.class);
 		tester.assertRenderedPage(AlbumsPage.class);
-		tester.startPage(SingleProductPage.class);
+		tester.startPage(SingleProductPage.class, pageParameters);
 		tester.assertRenderedPage(SingleProductPage.class);
-		tester.startPage(AlbumProductPage.class);
+		tester.startPage(AlbumProductPage.class, pageParameters);
 		tester.assertRenderedPage(AlbumProductPage.class);
 	}
 
