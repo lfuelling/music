@@ -8,6 +8,7 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -57,4 +58,24 @@ public class TestMusicSite
 		Assert.assertEquals(Storage.relativeAudioPath, "/media");
 	}
 
+	@Test
+	public void testLinksOnHomePage(){
+		tester.startPage(HomePage.class);
+		tester.assertRenderedPage(HomePage.class);
+		tester.assertLabel("version", Storage.getVersion());
+		tester.clickLink("singlesLink");
+		tester.assertRenderedPage(SinglesPage.class);
+		tester.clickLink("albumsLink");
+		tester.assertRenderedPage(AlbumsPage.class);
+		tester.clickLink("homeLink");
+		tester.assertRenderedPage(HomePage.class);
+	}
+
+	@Test
+	public void testMountedPages(){
+		tester.executeUrl("./singles");
+		tester.assertRenderedPage(SinglesPage.class);
+		tester.executeUrl("./albums");
+		tester.assertRenderedPage(AlbumsPage.class);
+	}
 }
