@@ -1,5 +1,5 @@
 # K40S' Music Page 
-[![Build Status](http://ci.k40s.net/buildStatus/icon?job=music)](http://ci.k40s.net/job/music/)[![Doge Status](https://img.shields.io/badge/doge-approved-green.svg)](https://www.youtube.com/watch?v=sd4bqmP_460)[![License Badge](https://img.shields.io/badge/license-KOSSL-blue.svg)](http://lfuelling.github.io/kossl)
+[![Build Status](http://ci.k40s.net/buildStatus/icon?job=music)](http://ci.k40s.net/job/music/) [![Doge Status](https://img.shields.io/badge/doge-approved-green.svg)](https://www.youtube.com/watch?v=sd4bqmP_460) [![License Badge](https://img.shields.io/badge/license-KOSSL-blue.svg)](http://lfuelling.github.io/kossl)
 
 This is the website where you can download every song/album, I made. You can also comment on songs and albums.
 
