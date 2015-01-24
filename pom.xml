@@ -7,7 +7,7 @@
 	<groupId>net.k40s</groupId>
 	<artifactId>music</artifactId>
 	<packaging>war</packaging>
-	<version>1.3</version>
+	<version>1.4</version>
 	<name>net.k40s.music</name>
 	<description>My music website. Completely made with Apache Wicket.</description>
 
