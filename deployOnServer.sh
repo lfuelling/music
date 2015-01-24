@@ -9,7 +9,7 @@ echo Deleting files:
 rm -vrf /var/lib/tomcat7/webapps/ROOT*
 echo
 echo Moving files:
-mv -v target/music-*.war /var/lib/tomcat7/webapps/Root.war
+mv -v target/music-*.war /var/lib/tomcat7/webapps/ROOT.war
 echo
 service tomcat7 start
 echo
