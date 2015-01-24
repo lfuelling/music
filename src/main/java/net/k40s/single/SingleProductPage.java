@@ -56,22 +56,22 @@ public class SingleProductPage extends WebPage implements Serializable {
 
     add(new Label("name2", songToUse.getName()));
     add(new Label("name3", songToUse.getName()));
-    
+
     //add(new ExternalLink("downloadButton", "/audio/" + songToUse.getAudio()));
     File audioFile = new File(Storage.getAudioPath() + songToUse.getAudio());
     add(new DownloadLink("downloadButton", audioFile));
-    
+
     add(new ExternalLink("donateButton", "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5Y8QNG65M2892"));
 
     add(new Label("releaseDate", songToUse.getReleaseDate()));
-    
+
     add(new Html5Audio("player", mediaSourceList){
       @Override
       protected boolean isControls() {
         return true;
       }
     });
-    
+
     add(new Link("homeLink") {
       @Override
       public void onClick() {

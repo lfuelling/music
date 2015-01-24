@@ -24,6 +24,13 @@ import java.io.Serializable;
  */
 public class SinglesPage extends WebPage implements Serializable {
   public SinglesPage() {
+
+
+  }
+
+  @Override
+  protected void onInitialize() {
+    super.onInitialize();
     add(new Link("homeLink") {
       @Override
       public void onClick() {
@@ -62,6 +69,5 @@ public class SinglesPage extends WebPage implements Serializable {
       }
     });
     add(new Label("version", Storage.getVersion()));
-
   }
 }

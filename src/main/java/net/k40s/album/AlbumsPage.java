@@ -20,6 +20,12 @@ import java.io.Serializable;
  */
 public class AlbumsPage extends WebPage implements Serializable{
   public AlbumsPage() {
+
+  }
+
+  @Override
+  protected void onInitialize() {
+    super.onInitialize();
     add(new Link("homeLink") {
       @Override
       public void onClick() {
@@ -58,6 +64,6 @@ public class AlbumsPage extends WebPage implements Serializable{
       }
     });
     add(new Label("version", Storage.getVersion()));
-    
+
   }
 }

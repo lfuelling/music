@@ -32,7 +32,9 @@ public class Storage {
       new Song(12, "Dr0p", "It's really just one drop. More like a little experiment than an actual song.", "noimage.png", "04 November 2014", "dr0p.mp3", 0.00, true),
       new Song(13, "Hotfix", "", "noimage.png", "21 November 2014", "hotfix.mp3", 0.00, true),
       new Song(14, "Center Of The Universe", "End of the space-series.", "cotu.jpg", "30 November 2014", "cotu.mp3", 0.00, true),
-      new Song(15, "Jamsession (feat. Dernerl)", "Sorry for the bad quality. It's been recorded using my Thinkpad W510.", "jamsession.jpg", "20 December 2014", "jamsession.mp3", 0.00, true)
+      new Song(15, "Jamsession (feat. Dernerl)", "Sorry for the bad quality. It's been recorded using my Thinkpad W510.", "jamsession.jpg", "20 December 2014", "jamsession.mp3", 0.00, true),
+      new Song(16, "Melody", "I found this beautiful thing in my house and started playing it it a bit.", "melody.jpg", "23 January 2015", "melody.mp3", 0.00, true),
+      new Song(17, "Jamsession 2 (feat. Dernerl)", "Jammin' again in even worse quality.", "jamsession2.jpg", "24 January 2015", "jamsession2.mp3", 0.00, true)
   );
 
   static List<Album> albums = Arrays.asList(

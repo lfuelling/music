@@ -13,7 +13,11 @@ public class HomePage extends WebPage {
 
 	public HomePage(final PageParameters parameters) {
 		super(parameters);
+    }
 
+	@Override
+	protected void onInitialize() {
+		super.onInitialize();
 		add(new Link("homeLink") {
 			@Override
 			public void onClick() {
@@ -34,6 +38,5 @@ public class HomePage extends WebPage {
 		});
 		add(new ExternalLink("contactLink", "http://k40s.net"));
 		add(new Label("version", Storage.getVersion()));
-
-    }
+	}
 }
