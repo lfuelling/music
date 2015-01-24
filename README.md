@@ -1,4 +1,5 @@
-# K40S' Music Page [![Build Status](http://ci.k40s.net/buildStatus/icon?job=music)](http://ci.k40s.net/job/music/)
+# K40S' Music Page 
+[![Build Status](http://ci.k40s.net/buildStatus/icon?job=music)](http://ci.k40s.net/job/music/) [![Doge Status](https://img.shields.io/badge/doge-wow-green.svg)](https://www.youtube.com/watch?v=sd4bqmP_460) ![Repo Size](https://reposs.herokuapp.com/?path=lfuelling/music) [![License Badge](https://img.shields.io/badge/license-KOSSL-blue.svg)](http://lfuelling.github.io/kossl)
 
 This is the website where you can download every song/album, I made. You can also comment on songs and albums.
 
