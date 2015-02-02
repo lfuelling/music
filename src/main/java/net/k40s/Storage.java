@@ -1,16 +1,25 @@
 package net.k40s;
 
 import com.google.common.collect.Lists;
+
 import net.k40s.album.Album;
 import net.k40s.single.Song;
 
 import java.util.Arrays;
 import java.util.List;
 
+
+// Enter your initials down there.
+
 /**
  * @author Lukas F&uuml;lling (l.fuelling@micromata.de)
  */
 public class Storage {
+	
+	static String dbUsername = "Someone";
+	static String dbPassword = "reindeer flotilla"; 
+	static String dbName = "db_01";
+	
 
   static String audioPath = "/var/audio/"; //THIS IS SO DAMN IMPORTANT!!!
   static String relativeAudioPath = "/media"; //Mountpoint
