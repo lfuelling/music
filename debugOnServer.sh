@@ -17,6 +17,6 @@ echo
 echo Moving files:
 mv -v target/music-*.war /var/lib/tomcat7/webapps/debug.war
 echo
-service tomcat
+service tomcat7 start
 echo
 echo Done.
