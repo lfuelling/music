@@ -13,7 +13,7 @@ import org.apache.wicket.request.resource.SharedResourceReference;
 
 import java.io.File;
 
-public class WicketApplication extends WebApplication {
+public class MusicSite extends WebApplication {
   /**
    * @see org.apache.wicket.Application#getHomePage()
    */
@@ -28,7 +28,7 @@ public class WicketApplication extends WebApplication {
    */
   @Override
   public void init() {
-    Logger logger = LogManager.getLogger(WicketApplication.class.getName());
+    Logger logger = LogManager.getLogger(MusicSite.class.getName());
     super.init();
 
     logger.info("Music Page Deployed Successfully");
