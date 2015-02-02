@@ -2,11 +2,13 @@ package net.k40s;
 
 import net.k40s.album.AlbumProductPage;
 import net.k40s.album.AlbumsPage;
+import net.k40s.debug.DBTestSite;
 import net.k40s.single.SingleProductPage;
 import net.k40s.single.SinglesPage;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.wicket.RuntimeConfigurationType;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.request.resource.SharedResourceReference;
@@ -14,6 +16,7 @@ import org.apache.wicket.request.resource.SharedResourceReference;
 import java.io.File;
 
 public class MusicSite extends WebApplication {
+	private static boolean debug = true;
   /**
    * @see org.apache.wicket.Application#getHomePage()
    */
@@ -22,15 +25,23 @@ public class MusicSite extends WebApplication {
 
     return HomePage.class;
   }
+  
+  
 
   /**
    * @see org.apache.wicket.Application#init()
    */
   @Override
   public void init() {
-    Logger logger = LogManager.getLogger(MusicSite.class.getName());
+	Logger logger = LogManager.getLogger(MusicSite.class.getName());
     super.init();
-
+    getConfigurationType();
+	if(getConfigurationType().equals(RuntimeConfigurationType.DEVELOPMENT)){
+    	mountPage("/debug", DBTestSite.class);
+    	setDebug(true);
+    } else {
+    	setDebug(false);
+    }
     logger.info("Music Page Deployed Successfully");
     // add your configuration here
     mountPage("/albums", AlbumsPage.class);
@@ -43,4 +54,16 @@ public class MusicSite extends WebApplication {
 
     mountResource(Storage.relativeAudioPath, new SharedResourceReference("mediaFolder"));
   }
+
+
+
+public static boolean isDebug() {
+	return debug;
+}
+
+
+
+public void setDebug(boolean debug) {
+	this.debug = debug;
+}
 }

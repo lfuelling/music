@@ -1,12 +1,14 @@
 package net.k40s;
 
 import net.k40s.album.AlbumsPage;
+import net.k40s.debug.DBTestSite;
 import net.k40s.single.SinglesPage;
 
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.ExternalLink;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
+import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.WebPage;
 
 public class HomePage extends WebPage {
@@ -15,6 +17,7 @@ public class HomePage extends WebPage {
 		super(parameters);
     }
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	protected void onInitialize() {
 		super.onInitialize();
@@ -36,6 +39,19 @@ public class HomePage extends WebPage {
 				setResponsePage(AlbumsPage.class);
 			}
 		});
+		WebMarkupContainer debugListItem = new WebMarkupContainer("debugLi");
+		debugListItem.add(new Link("debugLink"){
+			@Override
+			public void onClick(){
+				setResponsePage(DBTestSite.class);
+			}
+		});
+		if(MusicSite.isDebug()){
+			add(debugListItem);
+		} else {
+			debugListItem.setVisible(false);
+			add(debugListItem);
+		}
 		add(new ExternalLink("contactLink", "http://k40s.net"));
 		add(new Label("version", Storage.getVersion()));
 	}
