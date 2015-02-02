@@ -1,4 +1,10 @@
 #!/bin/bash
+echo Pulling changes...
+git pull
+echo
+echo Switching Branch to debug...
+git checkout debug
+echo
 echo Building project...
 echo
 mvn -Dmaven.test.skip=true -DskipTests clean package

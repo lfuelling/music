@@ -1,4 +1,10 @@
 #!/bin/bash
+echo Pulling changes...
+git pull
+echo
+echo Switching Branch to master...
+git checkout master
+echo
 echo Building project...
 echo
 mvn -Dmaven.test.skip=true -DskipTests clean package
@@ -14,4 +20,3 @@ echo
 service tomcat7 start
 echo
 echo Done.
-
