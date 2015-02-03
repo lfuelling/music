@@ -8,6 +8,7 @@ import net.k40s.single.SinglesPage;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.wicket.Application;
 import org.apache.wicket.RuntimeConfigurationType;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.protocol.http.WebApplication;
@@ -25,8 +26,6 @@ public class MusicSite extends WebApplication {
 
     return HomePage.class;
   }
-  
-  
 
   /**
    * @see org.apache.wicket.Application#init()
@@ -35,12 +34,13 @@ public class MusicSite extends WebApplication {
   public void init() {
 	Logger logger = LogManager.getLogger(MusicSite.class.getName());
     super.init();
-    getConfigurationType();
 	if(getConfigurationType().equals(RuntimeConfigurationType.DEVELOPMENT)){
     	mountPage("/debug", DBTestSite.class);
     	setDebug(true);
+        logger.info("Running in Debug mode");
     } else {
     	setDebug(false);
+      logger.trace("Running in Deployment mode");
     }
     logger.info("Music Page Deployed Successfully");
     // add your configuration here

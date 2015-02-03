@@ -9,60 +9,39 @@ import java.sql.Statement;
 import java.util.Date;
 
 public class DatabaseHandler {
-  private Connection connect = null;
-  private Statement statement = null;
-  private PreparedStatement preparedStatement = null;
-  private ResultSet resultSet = null;
-  private String dbUsername = Storage.getDbUsername();
-  private String dbPassword = Storage.getDbPassword();
-  private String dbName = Storage.getDbName();
+    private Connection connect = null;
+    private String dbUsername = Storage.getDbUsername();
+    private String dbPassword = Storage.getDbPassword();
+    private String dbName = Storage.getDbName();
+    private String connectionURI = "jdbc:mysql://localhost/" + dbName + "?" + "user=" + dbUsername + "&password=" + dbPassword;
 
-  public void readDataBase() throws Exception {
-    try {
-      // This will load the MySQL driver, each DB has its own driver
-      Class.forName("com.mysql.jdbc.Driver");
-      // Setup the connection with the DB
-      connect = DriverManager
-          .getConnection("jdbc:mysql://localhost/" + dbName + "?"
-              + "user=" + dbUsername + "&password=" + dbPassword);
-      // Statements allow to issue SQL queries to the database
-      //   statement = connect.createStatement();
-      // Result set get the result of the SQL query
-      //   resultSet = statement
-      //       .executeQuery("select * from feedback.comments");
-      //   writeResultSet(resultSet);
 
-      // PreparedStatements can use variables and are more efficient
-      //   preparedStatement = connect
-      //       .prepareStatement("insert into  feedback.comments values (default, ?, ?, ?, ? , ?, ?)");
-      // "myuser, webpage, datum, summery, COMMENTS from feedback.comments");
-      // Parameters start with 1
-      //   preparedStatement.setString(1, "Test");
-      //   preparedStatement.setString(2, "TestEmail");
-      //   preparedStatement.setString(3, "TestWebpage");
-      //   preparedStatement.setDate(4, new java.sql.Date(2009, 12, 11));
-      //   preparedStatement.setString(5, "TestSummary");
-      //   preparedStatement.setString(6, "TestComment");
-      //   preparedStatement.executeUpdate();
+    public ResultSet executeQuery(String query) throws Exception {
+        try {
+            // This will load the MySQL driver, each DB has its own driver
+            Class.forName("com.mysql.jdbc.Driver");
+            // Setup the connection with the DB
+            connect = DriverManager
+                    .getConnection(connectionURI);
 
-      //   preparedStatement = connect
-      //       .prepareStatement("SELECT myuser, webpage, datum, summery, COMMENTS from feedback.comments");
-      //   resultSet = preparedStatement.executeQuery();
-      //   writeResultSet(resultSet);
+            Statement statement = connect.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            connect.close();
+            return resultSet;
+        } catch (Exception e) {
+            throw e;
+        }
 
-      // Remove again the insert comment
-      //   preparedStatement = connect
-      //   .prepareStatement("delete from feedback.comments where myuser= ? ; ");
-      //   preparedStatement.setString(1, "Test");
-      //   preparedStatement.executeUpdate();
-      
-      //   resultSet = statement
-      //   .executeQuery("select * from feedback.comments");
-      //   writeMetaData(resultSet);
-      
-    } catch (Exception e) {
-      throw e;
-    } 
+    }
+    
+    public void executeStatement(String statement) throws SQLException, ClassNotFoundException {
+        // This will load the MySQL driver, each DB has its own driver
+        Class.forName("com.mysql.jdbc.Driver");
+        connect = DriverManager.getConnection(connectionURI);
+        PreparedStatement preparedStmt = connect.prepareStatement(statement);
+        preparedStmt.execute();
 
-  }
+        connect.close();
+        
+    }
 }

@@ -13,8 +13,6 @@ public class Song implements Serializable {
   String image;
   String releaseDate;
   String audioFile;
-  double price;
-  boolean payWhatYouWant;
 
 
   /**
@@ -26,15 +24,13 @@ public class Song implements Serializable {
    * @param price Song Price
    * @param payWhatYouWant Is Song Pay What You Want?
    */
-  public Song(int id, String name, String description, String image, String releaseDate, String audioFile, double price, boolean payWhatYouWant) {
+  public Song(int id, String name, String description, String image, String releaseDate, String audioFile) {
 
     this.id = id;
     this.name = name;
     this.description = description;
     this.image = image;
     this.releaseDate = releaseDate;
-    this.price = price;
-    this.payWhatYouWant = payWhatYouWant;
     this.audioFile = audioFile;
   }
 
@@ -69,13 +65,4 @@ public class Song implements Serializable {
     return releaseDate;
   }
 
-  public double getPrice() {
-
-    return price;
-  }
-
-  public boolean isPayWhatYouWant() {
-
-    return payWhatYouWant;
-  }
 }
