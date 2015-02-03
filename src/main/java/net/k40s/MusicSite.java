@@ -3,6 +3,7 @@ package net.k40s;
 import net.k40s.album.AlbumProductPage;
 import net.k40s.album.AlbumsPage;
 import net.k40s.debug.DBTestSite;
+import net.k40s.debug.dbtest.DatabaseTestPage;
 import net.k40s.single.SingleProductPage;
 import net.k40s.single.SinglesPage;
 
@@ -36,6 +37,7 @@ public class MusicSite extends WebApplication {
     super.init();
 	if(getConfigurationType().equals(RuntimeConfigurationType.DEVELOPMENT)){
     	mountPage("/debug", DBTestSite.class);
+        mountPage("/dbtest", DatabaseTestPage.class);
     	setDebug(true);
         logger.info("Running in Debug mode");
     } else {
