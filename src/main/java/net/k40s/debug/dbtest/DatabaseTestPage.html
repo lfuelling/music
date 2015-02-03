@@ -78,7 +78,7 @@
             <div class="btn-group" role="group" aria-label="DBTestSiteActions">
                 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#inputSongModal">Insert Song</button>
                 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#initDBModal">Initialize Database</button>
-                <button type="button" class="btn btn-default disabled">Nothing</button>
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#insertAlbumModal">Insert Album</button>
             </div>
         </div>
         <div class="panel-footer">
@@ -101,7 +101,7 @@
                 <div class="alert alert-danger" role="alert">
                     <span class="mdi-alert-error"></span>
                     <span class="sr-only">Warning:</span>&nbsp;
-                    Be sure to do this on a local system only.
+                    Be sure to review your inserts because they will be visible over the whole site.
                 </div>
                 <form wicket:id="inputSongForm">
                     <div class="form-group">
@@ -149,7 +149,55 @@
                 <div class="alert alert-danger" role="alert">
                     <span class="mdi-alert-error"></span>
                     <span class="sr-only">Warning:</span>&nbsp;
-                    Are you <b>100%</b> sure you want to do this? 
+                    <p>This will insert a new album into the database. Review before submitting.</p>
+                </div>
+                <form wicket:id="inputAlbumForm">
+                    <div class="form-group">
+                        <input class="form-control floating-label" wicket:id="inputAlbumName" type="text"
+                               placeholder="Album Name">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control floating-label" wicket:id="inputAlbumDescription" type="text"
+                               placeholder="Album Description">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control floating-label" wicket:id="inputAlbumImage" type="text"
+                               placeholder="Album Image">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control floating-label" wicket:id="inputAlbumDate" type="text"
+                               placeholder="Album Release Date">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control floating-label" wicket:id="inputAlbumSongs" type="text"
+                               placeholder="Songs (seperated by a comma)">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="Insert" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<div class="modal fade" id="insertAlbumModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Insert Song</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger" role="alert">
+                    <span class="mdi-alert-error"></span>
+                    <span class="sr-only">Warning:</span>&nbsp;
+                    Are you <b>100%</b> sure you want to do this?
                     <p>This will insert all songs into the DB. It won't delete anything. That's the problem.</p>
                 </div>
                 <button wicket:id="initDBBtn" type="button" class="btn btn-primary">Do it!</button>

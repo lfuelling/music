@@ -17,7 +17,7 @@ public class DatabaseHandler {
 
 
     public ResultSet executeQuery(String query) throws Exception {
-        try {
+        try {song
             // This will load the MySQL driver, each DB has its own driver
             Class.forName("com.mysql.jdbc.Driver");
             // Setup the connection with the DB
@@ -26,7 +26,6 @@ public class DatabaseHandler {
 
             Statement statement = connect.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
-            connect.close();
             return resultSet;
         } catch (Exception e) {
             throw e;

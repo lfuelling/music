@@ -162,4 +162,69 @@ public class DatabaseTestPage extends WebPage implements Serializable {
         }
         progressPanel.setProgressLevel(100);
     }
+    
+    public void inputAlbumModal(){
+        // INSERT INTO albums VALUES (1, "benis", "foo", "bar", "01.01.0001");
+        // INSERT INTO albums_has_songs VALUES (1, 1);
+        // INSERT INTO albums_has_songs VALUES (1, 2);
+
+        final TextField<String> albumName = new TextField<String>("inputAlbumName",
+                Model.of(""));
+        albumName.setRequired(true);
+        final TextField<String> albumDescription = new TextField<String>("inputAlbumDescription",
+                Model.of(""));
+        albumDescription.setRequired(true);
+        final TextField<String> albumImage = new TextField<String>("inputAlbumImage",
+                Model.of(""));
+        albumImage.setRequired(true);
+        final TextField<String> albumDate = new TextField<String>("inputAlbumDate",
+                Model.of(""));
+        albumDate.setRequired(true);
+        final TextField<String> albumSongs = new TextField<String>("inputAlbumSongs",
+                Model.of(""));
+        albumSongs.setRequired(true);
+
+        Form<?> albumForm = new Form<Void>("inputAlbumForm") {
+
+            @Override
+            protected void onSubmit() {
+                DatabaseHandler dbhandler = new DatabaseHandler();
+                final String albumNameValue = albumName.getModelObject();
+                final String albumDescValue = albumDescription.getModelObject();
+                final String albumImagValue = albumImage.getModelObject();
+                final String albumDateValue = albumDate.getModelObject();
+                final String albumSongValue = albumSongs.getModelObject();
+                
+                final String[] albumSongsArray = albumSongValue.split(",");
+
+                try {
+                    dbhandler.executeStatement("INSERT INTO albums (albumname,albumdescr,albumimage,albumrelease) VALUES ('"+ albumNameValue +"','"+ albumDescValue +"','"+ albumImagValue +"','"+ albumDateValue +"');");
+                } catch (Exception e) {
+                    logger.warn(e);
+                }
+                int albumid = 0;
+                try {
+                    ResultSet rs = dbhandler.executeQuery("SELECT * FROM albums WHERE albumname = '" + albumNameValue + "';");
+                    albumid = rs.getInt("albumid");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                
+
+                for(String songID : albumSongsArray){
+
+                }
+                
+                progressPanel.setProgressLevel(100);
+            }
+
+        };
+
+        add(albumForm);
+        albumForm.add(albumName);
+        albumForm.add(albumDescription);
+        albumForm.add(albumImage);
+        albumForm.add(albumDate);
+        albumForm.add(albumSongs);
+    }
 }

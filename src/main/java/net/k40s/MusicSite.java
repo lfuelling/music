@@ -44,7 +44,7 @@ public class MusicSite extends WebApplication {
     	setDebug(false);
       logger.trace("Running in Deployment mode");
     }
-    logger.info("Music Page Deployed Successfully");
+    logger.info("Music Page Deployed Successfully. Populating Lists...");
     // add your configuration here
     mountPage("/albums", AlbumsPage.class);
     mountPage("/singles", SinglesPage.class);
@@ -58,8 +58,7 @@ public class MusicSite extends WebApplication {
   }
 
 
-
-public static boolean isDebug() {
+  public static boolean isDebug() {
 	return debug;
 }
 

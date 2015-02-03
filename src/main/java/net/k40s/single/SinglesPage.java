@@ -1,6 +1,8 @@
 package net.k40s.single;
 
 
+import com.google.common.collect.Lists;
+import net.k40s.DatabaseHandler;
 import net.k40s.HomePage;
 import net.k40s.MusicSite;
 import net.k40s.Storage;
@@ -19,6 +21,10 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.resource.ContextRelativeResource;
 
 import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
 
 
 /**
@@ -53,7 +59,7 @@ public class SinglesPage extends WebPage implements Serializable {
     });
     add(new ExternalLink("contactLink", "http://k40s.net"));
 
-    add(new ListView<Song>("singles", Storage.getReversedSingles()) { // getReversedSingles for correct placement on the website.
+    add(new ListView<Song>("singles", Storage.getReversedSingles()) { // reversed -> New songs up.
       @Override
       protected void populateItem(ListItem<Song> item) {
         final Song song = item.getModelObject();
