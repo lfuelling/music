@@ -23,7 +23,7 @@ public class Storage {
 
   static String audioPath = "/var/audio/"; //THIS IS SO DAMN IMPORTANT!!!
   static String relativeAudioPath = "/media"; //Mountpoint
-  static String version = "1.6"; //TODO Change version number according to pom.xml
+  static String version = "1.7"; //TODO Change version number according to pom.xml
 
   
 
