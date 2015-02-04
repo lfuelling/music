@@ -49,15 +49,197 @@
 
 
 <div class="container">
-    <div class="panel panel-default">
+   <div class="panel panel-default">
         <div class="panel-heading">
             <h1 class="panel-title">Welcome</h1>
         </div>
         <div class="panel-body">
-            <!-- PLACE LOGIN FORM HERE -->
+            <p><b>This</b> is the backend. On this page you can insert new stuff into the DB or just check the tables. (more to come)</p>
+            <hr>
+            <div role="tabpanel">
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#doSomething" aria-controls="doSomething" role="tab" data-toggle="tab">Do Something</a></li>
+                    <li role="presentation"><a href="#allSingles" aria-controls="allSingles" role="tab" data-toggle="tab">View All Singles</a></li>
+                    <li role="presentation"><a href="#allAlbums" aria-controls="allAlbums" role="tab" data-toggle="tab">View All Albums</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="doSomething">
+                        <hr>
+                        <dl class="dl-horizontal">
+                            <dt>Insert A Song</dt>
+                            <dd>You can insert a new song into the database by clicking this button.</dd>
+                            <dt>Initialize Songs</dt>
+                            <dd>This will initialize the database with the songs specified in the Storage class.</dd>
+                            <dt>Insert Album</dt>
+                            <dd>You can insert a new album into the database by clicking this button. The AlbumID will be generated automatically.</dd>
+                        </dl>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#inputSongModal">Insert Song</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#initDBModal">Initialize Songs</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertAlbumModal">Insert Album</button>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="allSingles">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Release Date</th>
+                                <th>File</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr wicket:id="singlesTable">
+                                <th scope="row" wicket:id="songid">1</th>
+                                <td wicket:id="songname">Song</td>
+                                <td wicket:id="songdesc">It's a song</td>
+                                <td wicket:id="songimag">image.jpg</td>
+                                <td wicket:id="songdate">today</td>
+                                <td wicket:id="songfile">song.mp3</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="allAlbums">
+                        <hr>
+                        <p class="lead">To Be Implemented</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div wicket:id="progressPanel"></div>
         </div>
     </div>
 </div>
+
+
+<div class="modal fade" id="inputSongModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Insert Song</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger" role="alert">
+                    <span class="mdi-alert-error"></span>
+                    <span class="sr-only">Warning:</span>&nbsp;
+                    Be sure to review your inserts because they will be visible over the whole site.
+                </div>
+                <form wicket:id="inputSongForm">
+                    <div class="form-group">
+                        <input class="form-control floating-label" wicket:id="inputSongName" type="text"
+                               placeholder="Song Name">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control floating-label" wicket:id="inputSongDescription" type="text"
+                               placeholder="Song Description">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control floating-label" wicket:id="inputSongImage" type="text"
+                               placeholder="Song Image">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control floating-label" wicket:id="inputSongDate" type="text"
+                               placeholder="Song Release Date">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control floating-label" wicket:id="inputSongFilename" type="text"
+                               placeholder="Song Filename">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="Insert" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<div class="modal fade" id="insertAlbumModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Insert Album</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger" role="alert">
+                    <span class="mdi-alert-error"></span>
+                    <span class="sr-only">Warning:</span>&nbsp;
+                    <p>This will insert a new album into the database. Review before submitting.</p>
+                </div>
+                <form wicket:id="inputAlbumForm">
+                    <div class="form-group">
+                        <input class="form-control floating-label" wicket:id="inputAlbumName" type="text"
+                               placeholder="Album Name">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control floating-label" wicket:id="inputAlbumDescription" type="text"
+                               placeholder="Album Description">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control floating-label" wicket:id="inputAlbumImage" type="text"
+                               placeholder="Album Image">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control floating-label" wicket:id="inputAlbumDate" type="text"
+                               placeholder="Album Release Date">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control floating-label" wicket:id="inputAlbumSongs" type="text"
+                               placeholder="Songs (seperated by a comma)">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="Insert" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<div class="modal fade" id="initDBModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Insert Song</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger" role="alert">
+                    <span class="mdi-alert-error"></span>
+                    <span class="sr-only">Warning:</span>&nbsp;
+                    Are you <b>100%</b> sure you want to do this?
+                    <p>This will insert all songs into the DB. It won't delete anything. That's the problem.</p>
+                </div>
+                <button wicket:id="initDBBtn" type="button" class="btn btn-primary">Do it!</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -68,10 +250,29 @@
 <script src="js/ripples.min.js"></script>
 <script src="js/version.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $.material.init();
     });
 </script>
+<script>
+    $('#doSomething').find('a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    })
+</script>
+<script>
+    $('#allSingles').find('a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    })
+</script>
+<script>
+    $('#allAlbums').find('a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    })
+</script>
+
 
 </body>
 </html>
