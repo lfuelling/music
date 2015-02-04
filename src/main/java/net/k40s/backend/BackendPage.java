@@ -7,11 +7,9 @@ import java.util.List;
 
 import net.k40s.DatabaseHandler;
 import net.k40s.HomePage;
-import net.k40s.MusicSite;
+import net.k40s.ProgressBarPanel;
 import net.k40s.Storage;
 import net.k40s.album.AlbumsPage;
-import net.k40s.debug.DBTestSite;
-import net.k40s.debug.ProgressBarPanel;
 import net.k40s.single.SinglesPage;
 import net.k40s.single.Song;
 
@@ -20,7 +18,6 @@ import org.apache.logging.log4j.Logger;
 import org.apache.wicket.Application;
 import org.apache.wicket.authroles.authentication.AuthenticatedWebApplication;
 import org.apache.wicket.authroles.authentication.AuthenticatedWebSession;
-import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;

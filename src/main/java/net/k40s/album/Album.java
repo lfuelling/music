@@ -1,9 +1,9 @@
 package net.k40s.album;
 
-import net.k40s.single.Song;
-
 import java.io.Serializable;
 import java.util.List;
+
+import net.k40s.single.Song;
 
 /**
  * @author Lukas F&uuml;lling (l.fuelling@micromata.de)

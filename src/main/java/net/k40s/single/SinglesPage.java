@@ -1,15 +1,12 @@
 package net.k40s.single;
 
 
-import com.google.common.collect.Lists;
-import net.k40s.DatabaseHandler;
+import java.io.Serializable;
+
 import net.k40s.HomePage;
-import net.k40s.MusicSite;
 import net.k40s.Storage;
 import net.k40s.album.AlbumsPage;
-import net.k40s.debug.DBTestSite;
 
-import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.image.Image;
@@ -19,12 +16,6 @@ import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.resource.ContextRelativeResource;
-
-import java.io.Serializable;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.LinkedList;
-import java.util.List;
 
 
 /**
@@ -77,18 +68,6 @@ public class SinglesPage extends WebPage implements Serializable {
       }
     });
     add(new Label("version", Storage.getVersion()));
-    WebMarkupContainer debugListItem = new WebMarkupContainer("debugLi");
-	debugListItem.add(new Link("debugLink"){
-		@Override
-		public void onClick(){
-			setResponsePage(DBTestSite.class);
-		}
-	});
-	if(MusicSite.isDebug()){
-		add(debugListItem);
-	} else {
-		debugListItem.setVisible(false);
-		add(debugListItem);
-	}
+    
   }
 }

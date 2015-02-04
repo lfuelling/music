@@ -1,17 +1,22 @@
 package net.k40s.album;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.zip.ZipOutputStream;
+
+import javax.servlet.http.HttpServletRequest;
+
 import net.k40s.FileUtils;
 import net.k40s.HomePage;
-import net.k40s.MusicSite;
 import net.k40s.Storage;
-import net.k40s.debug.DBTestSite;
 import net.k40s.single.SingleProductPage;
 import net.k40s.single.SinglesPage;
 import net.k40s.single.Song;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.image.Image;
@@ -26,11 +31,6 @@ import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.http.WebRequest;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.resource.ContextRelativeResource;
-
-import javax.servlet.http.HttpServletRequest;
-
-import java.io.*;
-import java.util.zip.ZipOutputStream;
 
 /**
  * @author Lukas F&uuml;lling (l.fuelling@micromata.de)
@@ -125,19 +125,7 @@ public class AlbumProductPage extends WebPage implements Serializable {
       DownloadLink dllink = new DownloadLink("dllink", zipFileModel, filename);
       dllink.setDeleteAfterDownload(true);
       add(dllink);
-      WebMarkupContainer debugListItem = new WebMarkupContainer("debugLi");
-		debugListItem.add(new Link("debugLink"){
-			@Override
-			public void onClick(){
-				setResponsePage(DBTestSite.class);
-			}
-		});
-		if(MusicSite.isDebug()){
-			add(debugListItem);
-		} else {
-			debugListItem.setVisible(false);
-			add(debugListItem);
-		}
+     
       
     }
   }

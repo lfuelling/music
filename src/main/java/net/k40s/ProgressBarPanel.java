@@ -1,4 +1,4 @@
-package net.k40s.debug;
+package net.k40s;
 
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.ajax.AjaxSelfUpdatingTimerBehavior;

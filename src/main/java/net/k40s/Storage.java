@@ -1,15 +1,15 @@
 package net.k40s;
 
-import com.google.common.collect.Lists;
-
-import net.k40s.album.Album;
-import net.k40s.single.Song;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+
+import net.k40s.album.Album;
+import net.k40s.single.Song;
+
+import com.google.common.collect.Lists;
 
 
 // Enter your initials down there.
