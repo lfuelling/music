@@ -18,6 +18,9 @@ import java.util.List;
  * @author Lukas F&uuml;lling (l.fuelling@micromata.de)
  */
 public class Storage {
+    
+    static String backendUserName = "example";
+    static String backendUserPass = "ki2jh74";
 
     static String dbUsername = "example";
     static String dbPassword = "ki2jh74";
@@ -192,6 +195,14 @@ public class Storage {
     public static String getRelativeAudioPath() {
 
         return relativeAudioPath + "/";
+    }
+
+    public static String getBackendUserName() {
+        return backendUserName;
+    }
+
+    public static String getBackendUserPass() {
+        return backendUserPass;
     }
 
     public static String getDbUsername() {
