@@ -79,19 +79,18 @@
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in active" id="doSomething">
-                        <div class="alert alert-warning">
-                            <h4>Warning!</h4>
-
-                            <p>Please klick those links only one at a time because you can easily crash the server with those
-                                stuff.</p>
-                        </div>
-                        <p>Here's a list of actions:</p>
-
-                        <div class="btn-group" role="group" aria-label="DBTestSiteActions">
-                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#inputSongModal">Insert Song</button>
-                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#initDBModal">Initialize Songs</button>
-                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#insertAlbumModal">Insert Album</button>
-                        </div>
+                        <hr>
+                        <dl class="dl-horizontal">
+                            <dt>Insert A Song</dt>
+                            <dd>You can insert a new song into the database by clicking this button.</dd>
+                            <dt>Initialize Songs</dt>
+                            <dd>This will initialize the database with the songs specified in the Storage class.</dd>
+                            <dt>Insert Album</dt>
+                            <dd>You can insert a new album into the database by clicking this button. The AlbumID will be generated automatically.</dd>
+                        </dl>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#inputSongModal">Insert Song</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#initDBModal">Initialize Songs</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertAlbumModal">Insert Album</button>
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="allSingles">
                         <table class="table table-hover">
@@ -118,7 +117,8 @@
                         </table>
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="allAlbums">
-                        
+                        <hr>
+                        <p class="lead">To Be Implemented</p>
                     </div>
                 </div>
 

@@ -149,7 +149,7 @@ public class DatabaseTestPage extends WebPage implements Serializable {
     }
     
     public void initDB(){
-        List<Song> songList = Storage.getSingles();
+        List<Song> songList = Storage.getSinglesForInit();
         int i = 0;
         progressPanel.setProgressLevel(i);
         for(Song song : songList){

@@ -62,7 +62,7 @@ public class AlbumProductPage extends WebPage implements Serializable {
       add(new Label("description", albumToUse.getDescription()));
       add(new Image("image", new ContextRelativeResource("/album_images/" + albumToUse.getImage())));
 
-      add(new ListView<Song>("songs", Storage.getSongsOfAlbum(albumToUse.getId())) {
+      add(new ListView<Song>("songs", albumToUse.getSongs()) {
         @Override
         protected void populateItem(ListItem item) {
 

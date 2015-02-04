@@ -114,7 +114,7 @@ public class Storage {
                     e.printStackTrace();
                 }
                 while(rs2.next()) {
-                    int songID = rs.getInt("songid");
+                    int songID = rs2.getInt("songid");
                     String songName = rs2.getString("songname");
                     String songDesc = rs2.getString("songdescr");
                     String songimag = rs2.getString("songimage");
@@ -130,11 +130,6 @@ public class Storage {
             e.printStackTrace();
         }
         return albums;
-    }
-
-    public static List<Song> getSongsOfAlbum(int albumID) {
-        Album album = getAlbums().get(albumID);
-        return album.getSongs();
     }
 
     public static List<Album> getReversedAlbums() {
@@ -209,6 +204,28 @@ public class Storage {
 
     public static String getDbName() {
         return dbName;
+    }
+    
+    public static List<Song> getSinglesForInit(){
+        return Arrays.asList(
+                new Song(1, "Pioneer", "My first Song. I dunno why, but I think it has the best intro of all songs.", "pioneer.jpg", "19 June 2014", "pioneer.mp3"),
+                new Song(2, "Hashes", "", "hashes.jpg", "20 June 2014", "hashes.mp3"),
+                new Song(3, "Struu", "Dedicated to a friend", "struu.jpg", "21 June 2014", "struu.mp3"),
+                new Song(4, "Rose", "Bad Wolf", "rose.jpg", "22 June 2014", "rose.mp3"),
+                new Song(5, "Shining", "Bonus track from the Spacewalk album.", "noimage.png", "22 June 2014", "shining.mp3"),
+                new Song(6, "Supernova", "", "supernova.jpg", "26 June 2014", "supernova.mp3"),
+                new Song(7, "Ezekiel", "", "ezekiel.jpg", "08 August 2014", "ezekiel.mp3"),
+                new Song(8, "Dawn Of The Ganja Queen", "", "ganjaqueen.jpg", "18 August 2014", "ganjaqueen.mp3"),
+                new Song(9, "Green Kingdom", "", "kingdom.jpg", "21 August 2014", "kingdom.mp3"),
+                new Song(10, "Alliens", "Got its name because of things...", "alliens.jpg", "21 September 2014", "alliens.mp3"),
+                new Song(11, "Mouth", "", "mouth.jpg", "30 October 2014", "mouth.mp3"),
+                new Song(12, "Dr0p", "It is really just one drop. More like a little experiment than an actual song.", "noimage.png", "04 November 2014", "dr0p.mp3"),
+                new Song(13, "Hotfix", "", "noimage.png", "21 November 2014", "hotfix.mp3"),
+                new Song(14, "Center Of The Universe", "End of the space-series.", "cotu.jpg", "30 November 2014", "cotu.mp3"),
+                new Song(15, "Jamsession (feat. Dernerl)", "Sorry for the bad quality. It has been recorded using my Thinkpad W510.", "jamsession.jpg", "20 December 2014", "jamsession.mp3"),
+                new Song(16, "Melody", "I found this beautiful thing in my house and started playing it it a bit.", "melody.jpg", "23 January 2015", "melody.mp3"),
+                new Song(17, "Jamsession 2 (feat. Dernerl)", "Jamming again in even worse quality.", "jamsession2.png", "24 January 2015", "jamsession2.mp3"));
+        
     }
 }
 
