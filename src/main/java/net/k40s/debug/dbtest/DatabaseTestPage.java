@@ -7,6 +7,7 @@ import net.k40s.Storage;
 import net.k40s.album.AlbumsPage;
 import net.k40s.debug.DBTestSite;
 import net.k40s.debug.ProgressBarPanel;
+import net.k40s.single.SingleProductPage;
 import net.k40s.single.SinglesPage;
 import net.k40s.single.Song;
 import org.apache.logging.log4j.LogManager;
@@ -20,14 +21,20 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.markup.html.image.Image;
 import org.apache.wicket.markup.html.link.ExternalLink;
 import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.markup.html.list.ListItem;
+import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.Model;
+import org.apache.wicket.request.mapper.parameter.PageParameters;
+import org.apache.wicket.request.resource.ContextRelativeResource;
 import org.apache.wicket.util.time.Duration;
 
 import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -80,6 +87,8 @@ public class DatabaseTestPage extends WebPage implements Serializable {
         ///////////////////////////////////////////////////////////////////////////
 
         inputSongModal();
+        inputAlbumModal();
+        addSinglesListView();
         add(progressPanel);
         add(new Link("initDBBtn"){
             @Override
@@ -205,14 +214,22 @@ public class DatabaseTestPage extends WebPage implements Serializable {
                 int albumid = 0;
                 try {
                     ResultSet rs = dbhandler.executeQuery("SELECT * FROM albums WHERE albumname = '" + albumNameValue + "';");
+                    rs.first(); // There shall be no second
                     albumid = rs.getInt("albumid");
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    logger.warn(e);
                 }
+                
                 
 
                 for(String songID : albumSongsArray){
-
+                    try {
+                        dbhandler.executeStatement("INSERT INTO albums_has_songs VALUES ('" + albumid + "','" + songID + "');");
+                    } catch (SQLException e) {
+                        logger.warn(e);
+                    } catch (ClassNotFoundException e) {
+                        logger.warn(e);
+                    }
                 }
                 
                 progressPanel.setProgressLevel(100);
@@ -226,5 +243,20 @@ public class DatabaseTestPage extends WebPage implements Serializable {
         albumForm.add(albumImage);
         albumForm.add(albumDate);
         albumForm.add(albumSongs);
+    }
+    
+    public void addSinglesListView(){
+        add(new ListView<Song>("singlesTable", Storage.getSingles()) {
+            @Override
+            protected void populateItem(ListItem<Song> item) {
+                final Song song = item.getModelObject();
+                item.add(new Label("songid", Integer.toString(song.getId())));
+                item.add(new Label("songname", song.getName()));
+                item.add(new Label("songdesc", song.getDescription()));
+                item.add(new Label("songimag", song.getImage()));
+                item.add(new Label("songdate", song.getReleaseDate()));
+                item.add(new Label("songfile", song.getAudio()));
+            }
+        });
     }
 }

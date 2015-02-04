@@ -4,7 +4,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
 ALTER TABLE `music`.`songs` CHANGE COLUMN `songdescr` `songdescr` MEDIUMTEXT NOT NULL  , CHANGE COLUMN `songrelease` `songrelease` VARCHAR(45) NOT NULL  , CHANGE COLUMN `songfile` `songfile` VARCHAR(45) NOT NULL  ;
 
-ALTER TABLE `music`.`albums` CHANGE COLUMN `albumdescr` `albumdescr` MEDIUMTEXT NOT NULL  , CHANGE COLUMN `albumrelease` `albumrelease` VARCHAR(45) NOT NULL  ;
+ALTER TABLE `music`.`albums` CHANGE COLUMN `albumid` `albumid` INT(11) NOT NULL AUTO_INCREMENT  , CHANGE COLUMN `albumdescr` `albumdescr` MEDIUMTEXT NOT NULL  , CHANGE COLUMN `albumrelease` `albumrelease` VARCHAR(45) NOT NULL  ;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

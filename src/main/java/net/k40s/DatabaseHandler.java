@@ -17,19 +17,12 @@ public class DatabaseHandler {
 
 
     public ResultSet executeQuery(String query) throws Exception {
-        try {song
-            // This will load the MySQL driver, each DB has its own driver
-            Class.forName("com.mysql.jdbc.Driver");
-            // Setup the connection with the DB
-            connect = DriverManager
-                    .getConnection(connectionURI);
-
-            Statement statement = connect.createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
-            return resultSet;
-        } catch (Exception e) {
-            throw e;
-        }
+        Class.forName("com.mysql.jdbc.Driver");
+        connect = DriverManager
+                .getConnection(connectionURI);
+        Statement statement = connect.createStatement();
+        ResultSet resultSet = statement.executeQuery(query);
+        return resultSet;
 
     }
     

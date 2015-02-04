@@ -65,20 +65,63 @@
             <h1 class="panel-title">Welcome</h1>
         </div>
         <div class="panel-body">
-            <p><b>This</b> is the database test page.</p>
+            <p><b>This</b> is the database test page. On this page you can insert new stuff into the DB or just check the tables.</p>
             <hr>
-            <div class="alert alert-warning">
-                <h4>Warning!</h4>
+            <div role="tabpanel">
 
-                <p>Please klick those links only one at a time because you can easily crash the server with those
-                    stuff.</p>
-            </div>
-            <p>Here's a list of actions:</p>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#doSomething" aria-controls="doSomething" role="tab" data-toggle="tab">Do Something</a></li>
+                    <li role="presentation"><a href="#allSingles" aria-controls="allSingles" role="tab" data-toggle="tab">View All Singles</a></li>
+                    <li role="presentation"><a href="#allAlbums" aria-controls="allAlbums" role="tab" data-toggle="tab">View All Albums</a></li>
+                </ul>
 
-            <div class="btn-group" role="group" aria-label="DBTestSiteActions">
-                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#inputSongModal">Insert Song</button>
-                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#initDBModal">Initialize Database</button>
-                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#insertAlbumModal">Insert Album</button>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="doSomething">
+                        <div class="alert alert-warning">
+                            <h4>Warning!</h4>
+
+                            <p>Please klick those links only one at a time because you can easily crash the server with those
+                                stuff.</p>
+                        </div>
+                        <p>Here's a list of actions:</p>
+
+                        <div class="btn-group" role="group" aria-label="DBTestSiteActions">
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#inputSongModal">Insert Song</button>
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#initDBModal">Initialize Songs</button>
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#insertAlbumModal">Insert Album</button>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="allSingles">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Release Date</th>
+                                <th>File</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr wicket:id="singlesTable">
+                                <th scope="row" wicket:id="songid">1</th>
+                                <td wicket:id="songname">Song</td>
+                                <td wicket:id="songdesc">It's a song</td>
+                                <td wicket:id="songimag">image.jpg</td>
+                                <td wicket:id="songdate">today</td>
+                                <td wicket:id="songfile">song.mp3</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="allAlbums">
+                        
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="panel-footer">
@@ -136,14 +179,14 @@
 </div>
 <!-- /.modal -->
 
-<div class="modal fade" id="initDBModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+<div class="modal fade" id="insertAlbumModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
      aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Insert Song</h4>
+                <h4 class="modal-title">Insert Album</h4>
             </div>
             <div class="modal-body">
                 <div class="alert alert-danger" role="alert">
@@ -184,7 +227,7 @@
 </div>
 <!-- /.modal -->
 
-<div class="modal fade" id="insertAlbumModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+<div class="modal fade" id="initDBModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
      aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -221,6 +264,24 @@
     $(document).ready(function () {
         $.material.init();
     });
+</script>
+<script>
+    $('#doSomething').find('a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    })
+</script>
+<script>
+    $('#allSingles').find('a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    })
+</script>
+<script>
+    $('#allAlbums').find('a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    })
 </script>
 
 </body>

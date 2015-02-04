@@ -27,11 +27,6 @@ public class Storage {
     static String audioPath = "/var/audio/"; //THIS IS SO DAMN IMPORTANT!!!
     static String relativeAudioPath = "/media"; //Mountpoint
     static String version = "1.7"; //TODO Change version number according to pom.xml
-    
-
-    static List<Album> albums = Arrays.asList(
-            
-    );
 
     public static List<Song> getSingles() {
         List<Song> singles = new LinkedList<Song>();
@@ -91,15 +86,101 @@ public class Storage {
 
     public static List<Album> getAlbums() {
 
+        List<Album> albums = new LinkedList<Album>();
+        DatabaseHandler dbhandler = new DatabaseHandler();
+        ResultSet rs = null;
+        try {
+            rs = dbhandler.executeQuery("SELECT * FROM albums;");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Fetch each row from the result set
+        try {
+            assert rs != null;
+            while (rs.next()) {
+                int albumID = rs.getInt("albumid");
+                String albumName = rs.getString("albumname");
+                String albumDesc = rs.getString("albumdescr");
+                String albumimag = rs.getString("albumimage");
+                String albumRele = rs.getString("albumrelease");
+                
+                List<Song> songsOfAlbum = new LinkedList<Song>();
+                DatabaseHandler dbhandler2 = new DatabaseHandler();
+                ResultSet rs2 = null;
+                try {
+                    rs2 = dbhandler2.executeQuery("select * from songs INNER JOIN albums_has_songs ON songs_songid = songs.songid WHERE albums_albumid = " + Integer.toString(albumID));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                while(rs2.next()) {
+                    int songID = rs.getInt("songid");
+                    String songName = rs2.getString("songname");
+                    String songDesc = rs2.getString("songdescr");
+                    String songimag = rs2.getString("songimage");
+                    String songRele = rs2.getString("songrelease");
+                    String songFile = rs2.getString("songfile");
+
+                    songsOfAlbum.add(new Song(songID, songName, songDesc, songimag, songRele, songFile));
+                }
+
+                albums.add(new Album(albumID, albumName, albumDesc, albumimag, albumRele, songsOfAlbum));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return albums;
     }
 
     public static List<Song> getSongsOfAlbum(int albumID) {
-        Album album = albums.get(albumID - 1);
+        Album album = getAlbums().get(albumID);
         return album.getSongs();
     }
 
     public static List<Album> getReversedAlbums() {
+        List<Album> albums = new LinkedList<Album>();
+        DatabaseHandler dbhandler = new DatabaseHandler();
+        ResultSet rs = null;
+        try {
+            rs = dbhandler.executeQuery("SELECT * FROM albums;");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Fetch each row from the result set
+        try {
+            assert rs != null;
+            while (rs.next()) {
+                int albumID = rs.getInt("albumid");
+                String albumName = rs.getString("albumname");
+                String albumDesc = rs.getString("albumdescr");
+                String albumimag = rs.getString("albumimage");
+                String albumRele = rs.getString("albumrelease");
+
+                List<Song> songsOfAlbum = new LinkedList<Song>();
+                DatabaseHandler dbhandler2 = new DatabaseHandler();
+                ResultSet rs2 = null;
+                try {
+                    rs2 = dbhandler2.executeQuery("select * from songs INNER JOIN albums_has_songs ON songs_songid = songs.songid WHERE albums_albumid = " + Integer.toString(albumID) + ";");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                while(rs2.next()) {
+                    int songID = rs2.getInt("songid");
+                    String songName = rs2.getString("songname");
+                    String songDesc = rs2.getString("songdescr");
+                    String songimag = rs2.getString("songimage");
+                    String songRele = rs2.getString("songrelease");
+                    String songFile = rs2.getString("songfile");
+
+                    songsOfAlbum.add(new Song(songID, songName, songDesc, songimag, songRele, songFile));
+                }
+
+                albums.add(new Album(albumID, albumName, albumDesc, albumimag, albumRele, songsOfAlbum));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return Lists.reverse(albums);
 
     }
