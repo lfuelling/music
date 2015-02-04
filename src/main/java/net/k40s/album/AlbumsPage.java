@@ -1,8 +1,11 @@
 package net.k40s.album;
 
+import java.io.Serializable;
+
 import net.k40s.HomePage;
-import net.k40s.single.SinglesPage;
 import net.k40s.Storage;
+import net.k40s.single.SinglesPage;
+
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.image.Image;
@@ -12,8 +15,6 @@ import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.resource.ContextRelativeResource;
-
-import java.io.Serializable;
 
 /**
  * @author Lukas F&uuml;lling (l.fuelling@micromata.de)
@@ -64,6 +65,6 @@ public class AlbumsPage extends WebPage implements Serializable{
       }
     });
     add(new Label("version", Storage.getVersion()));
-
+    
   }
 }

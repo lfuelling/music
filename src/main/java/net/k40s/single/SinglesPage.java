@@ -1,9 +1,12 @@
 package net.k40s.single;
 
 
+import java.io.Serializable;
+
 import net.k40s.HomePage;
 import net.k40s.Storage;
 import net.k40s.album.AlbumsPage;
+
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.image.Image;
@@ -11,12 +14,8 @@ import org.apache.wicket.markup.html.link.ExternalLink;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
-
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.resource.ContextRelativeResource;
-
-
-import java.io.Serializable;
 
 
 /**
@@ -51,7 +50,7 @@ public class SinglesPage extends WebPage implements Serializable {
     });
     add(new ExternalLink("contactLink", "http://k40s.net"));
 
-    add(new ListView<Song>("singles", Storage.getReversedSingles()) { // getReversedSingles for correct placement on the website.
+    add(new ListView<Song>("singles", Storage.getReversedSingles()) { // reversed -> New songs up.
       @Override
       protected void populateItem(ListItem<Song> item) {
         final Song song = item.getModelObject();
@@ -69,5 +68,6 @@ public class SinglesPage extends WebPage implements Serializable {
       }
     });
     add(new Label("version", Storage.getVersion()));
+    
   }
 }

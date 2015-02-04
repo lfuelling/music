@@ -1,8 +1,14 @@
 package net.k40s.single;
 
+import java.io.File;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 import net.k40s.HomePage;
 import net.k40s.Storage;
 import net.k40s.album.AlbumsPage;
+
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.image.Image;
@@ -15,11 +21,6 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.resource.ContextRelativeResource;
 import org.wicketstuff.html5.media.MediaSource;
 import org.wicketstuff.html5.media.audio.Html5Audio;
-
-import java.io.File;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Lukas F&uuml;lling (l.fuelling@micromata.de)
@@ -95,5 +96,6 @@ public class SingleProductPage extends WebPage implements Serializable {
     });
     add(new Label("version", Storage.getVersion()));
     add(new ExternalLink("contactLink", "http://k40s.net"));
+    
   }
 }

@@ -23,7 +23,7 @@ public class TestMusicSite
 	@Before
 	public void setUp()
 	{
-		tester = new WicketTester(new WicketApplication());
+		tester = new WicketTester(new MusicSite());
 		pageParameters = new PageParameters();
 		pageParameters.add("id", "2"); // Dunno why I use Hashes...
 	}
