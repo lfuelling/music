@@ -9,6 +9,7 @@ import net.k40s.DatabaseHandler;
 import net.k40s.HomePage;
 import net.k40s.ProgressBarPanel;
 import net.k40s.Storage;
+import net.k40s.album.Album;
 import net.k40s.album.AlbumsPage;
 import net.k40s.single.SinglesPage;
 import net.k40s.single.Song;
@@ -30,7 +31,7 @@ import org.apache.wicket.model.Model;
 
 
 /**
- * Created by k40s on 2/4/15.
+ * @author Lukas Fülling (lukas@k40s.net)
  */
 public class BackendPage extends WebPage implements Serializable {
 	Logger logger = LogManager.getLogger("net.k40s.backend.BackendPage");
@@ -78,6 +79,7 @@ public class BackendPage extends WebPage implements Serializable {
         inputSongModal();
         inputAlbumModal();
         addSinglesListView();
+        addAlbumsListView();
         add(progressPanel);
         add(new Link("initDBBtn"){
             @Override
@@ -245,6 +247,20 @@ public class BackendPage extends WebPage implements Serializable {
                 item.add(new Label("songimag", song.getImage()));
                 item.add(new Label("songdate", song.getReleaseDate()));
                 item.add(new Label("songfile", song.getAudio()));
+            }
+        });
+    }
+
+    public void addAlbumsListView(){
+        add(new ListView<Album>("albumsTable", Storage.getAlbums()) {
+            @Override
+            protected void populateItem(ListItem<Album> item) {
+                final Album song = item.getModelObject();
+                item.add(new Label("albumid", Integer.toString(song.getId())));
+                item.add(new Label("albumname", song.getName()));
+                item.add(new Label("albumdesc", song.getDescription()));
+                item.add(new Label("albumimag", song.getImage()));
+                item.add(new Label("albumdate", song.getReleaseDate()));
             }
         });
     }
