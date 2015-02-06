@@ -29,7 +29,7 @@ body {
     width: 100%;
 }
 
-.img512{
-    height:512px;
-    width:512px;
+.img512 {
+    width: auto;
+    max-width: 100%;
 }
