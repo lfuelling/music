@@ -62,9 +62,18 @@ public class SinglesPage extends WebPage implements Serializable {
             setResponsePage(SingleProductPage.class, params);
           }
         };
-        link.add(new Label("name", song.getName()));
+        Link link2 = new Link("link2") {
+          @Override
+          public void onClick() {
+            PageParameters params = new PageParameters();
+            params.add("id", song.getId());
+            setResponsePage(SingleProductPage.class, params);
+          }
+        };
+        link2.add(new Label("name", song.getName()));
         link.add(new Image("image", new ContextRelativeResource("/single_images/" + song.getImage())));
         item.add(link);
+        item.add(link2);
       }
     });
     add(new Label("version", Storage.getVersion()));
